@@ -1,0 +1,42 @@
+extends layout
+block content
+
+
+    .container(action='/reservations')
+        each element in items
+                .card.mt-4
+                    img.card-img-top.img-fluid(src='http://placehold.it/900x200', alt='')
+                    .card-body
+                        h3.card-title #{element.CustomerName}
+                        h4 &euro;#{element.ReservationPrice}
+                        li.card-text.text-muted #{moment(element.ReservationDate).format('MMM Do YYYY')}
+
+                            
+                        
+                .card.card-outline-secondary.my-4
+                    .card-header
+                        | Purchase Rooms for #{element.CustomerName}
+                    .card-body
+                        .col-12
+                            form
+                                label(for='quantity') Person Quantity
+                                select#quantity.form-control
+                                    option 1
+                                    option 2
+                                    option 3
+                                    option 4
+                                    option 5
+                                label(for='name') Name for Room
+                                input#name.form-control(type="text")
+                                label(for='address1') Address 1
+                                input#address1.form-control(type="text")
+                                label(for='address2') Address 2
+                                input#address2.form-control(type="text")
+                                label(for='address3') Address 3
+                                input#address3.form-control(type="text")
+                                label(for='town') Town
+                                input#town.form-control(type="text")
+                                label(for='county') County
+                                input#county.form-control(type="text")
+                            p
+                            a.btn.btn-success(href='#') Leave a Review
